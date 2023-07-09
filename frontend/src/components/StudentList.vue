@@ -1,7 +1,5 @@
 <template>
-
-  <v-container>
-    <v-table theme="dark">
+    <v-table theme="dark" style="max-width:50%">
       <thead>
       <tr>
         <th class="text-left">
@@ -24,13 +22,12 @@
     </v-table>
     <v-btn v-on:click="getStudents">Students</v-btn>
     <v-btn v-on:click="clearStudents">Clear</v-btn>
-  </v-container>
 </template>
 
 <script>
 import axios from 'axios';
 export default {
-  name: 'HelloWorld',
+  name: 'StudentList',
   data() {
     return{
       students: []
@@ -46,6 +43,11 @@ export default {
     clearStudents: function () {
       this.students = null;
     }
-  }
+  },
+  watch: {
+    group () {
+      this.drawer = false
+    },
+  },
 }
 </script>
